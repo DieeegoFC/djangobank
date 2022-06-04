@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block title %}View{% endblock %}
+
+{% block content %}
+    <h1>List</h1>
+    <ul>
+        {% for item in ls.all %}
+            {% if item.card_type == 'Black' %}
+                <li>{{item.curp}}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}
