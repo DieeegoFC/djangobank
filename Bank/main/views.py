@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import Request
 from .forms import CreateNewRequest
@@ -33,6 +33,16 @@ def create(response):
                 curp=form.cleaned_data['curp']
             )
             t.save()
+            form = CreateNewRequest()
     else:
         form = CreateNewRequest()
     return render(response, 'main/create.html', {'form': form})
+
+
+def delete(response):
+    if response.method == 'POST' and response.POST.get('delete'):
+        target = response.POST.get('target')
+        if Request.objects.filter(curp=target).exists():
+            del_object = Request.objects.get(curp=target)
+            del_object.delete()
+    return render(response, 'main/delete.html', {})

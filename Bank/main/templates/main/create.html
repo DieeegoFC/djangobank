@@ -3,7 +3,7 @@
 {% block title %}Create New Request{% endblock %}
 
 {% block content %}
-<h3>Create page.</h3>
+<h3>Create page</h3>
 <form method="post" action="/create/" class="form-group">
     {% csrf_token %}
     {{form.as_p}}

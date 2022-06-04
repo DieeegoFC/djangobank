@@ -3,12 +3,10 @@
 {% block title %}View{% endblock %}
 
 {% block content %}
-    <h1>List</h1>
+    <h3>List page</h3>
     <ul>
         {% for item in ls.all %}
-            {% if item.card_type == 'Black' %}
-                <li>{{item.curp}}</li>
-            {% endif %}
+            <li>{{item.curp}} - {{item.card_type.upper}} CARD.</li>
         {% endfor %}
     </ul>
 {% endblock %}
