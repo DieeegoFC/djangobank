@@ -3,10 +3,12 @@
 {% block title %}Create New Request{% endblock %}
 
 {% block content %}
-Create page.
-<form method="post" action="/create/">
+<h3>Create page.</h3>
+<form method="post" action="/create/" class="form-group">
     {% csrf_token %}
     {{form.as_p}}
-    <button type="submit" name="save">Create new</button>
+    <div class="input-group mb-3">
+        <button type="submit" name="save" class="btn btn-success">Create new</button>
+    </div>
 </form>
 {% endblock %}

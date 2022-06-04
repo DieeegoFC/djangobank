@@ -38,5 +38,6 @@ class Request(models.Model):
     income = models.IntegerField()
     curp = models.CharField(max_length=25)
 
+
     def __str__(self):
         return self.curp
